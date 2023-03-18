@@ -1,6 +1,12 @@
 import {combineReducers} from 'redux';
-function records() {
-  return [];
+import {STORE_RESTAURANTS} from './actions';
+function records(state = [], action) {
+  switch (action.type) {
+    case STORE_RESTAURANTS:
+      return action.records;
+    default:
+      return state;
+  }
 }
 export default combineReducers({
   records,
